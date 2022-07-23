@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart';
+import 'package:remind_me/bloc/reminder_bloc.dart';
 import 'package:remind_me/view/set_reminder.dart';
 
 import 'widgets/reminder_tile.dart';
 
-class ReminderPage extends StatelessWidget {
+class ReminderPage extends StatefulWidget {
   const ReminderPage({Key? key}) : super(key: key);
+
+  @override
+  State<ReminderPage> createState() => _ReminderPageState();
+}
+
+class _ReminderPageState extends State<ReminderPage> {
+  @override
+  void initState() {
+    context.read<ReminderBloc>().add(
+          ViewReminder(),
+        );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +63,11 @@ class ReminderPage extends StatelessWidget {
               )
             ],
           ),
-          body: ListView(
-            children: const [
-              ReminderTile(),
-            ],
+          body: BlocBuilder<ReminderBloc, ReminderState>(
+            builder: (context, event) {
+              return ListView(
+                  children: List.generate(5, (index) => const ReminderTile()));
+            },
           )),
     );
   }

@@ -28,5 +28,20 @@ class ReminderService {
   }
 
   //get list of reminder
-  Future fetchReminderList() async {}
+  Future fetchReminderList() async {
+    try {
+      http.Response response = await http
+          .post(Uri.parse('$baseUrl$reminderListApi?page_no=0'), headers: {
+        "Authorization": "Bearer $token",
+        "accept": "application/json"
+      });
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
+        print("result is $data");
+        return response;
+      }
+      // ignore: empty_catches
+    } catch (e) {}
+    return null;
+  }
 }
