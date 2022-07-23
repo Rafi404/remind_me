@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:remind_me/model/reminder_list_model.dart';
 
 class ReminderTile extends StatelessWidget {
+  final Datum reminderData;
   const ReminderTile({
+    required this.reminderData,
     Key? key,
   }) : super(key: key);
 

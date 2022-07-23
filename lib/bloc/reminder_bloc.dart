@@ -21,6 +21,7 @@ class ReminderBloc extends Bloc<ReminderEvent, ReminderState> {
       final response = await ReminderService().fetchReminderList();
       final result = reminderListModelFromJson(response.body);
       print(result.message);
+      emit(ListFetched(result.data));
     });
   }
 }
