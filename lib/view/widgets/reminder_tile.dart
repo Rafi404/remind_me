@@ -12,8 +12,13 @@ class ReminderTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: const Text('Remind me to call'),
-        subtitle: const Text('Feb 17, 12:30 PM'),
+        title: Text(reminderData.alertText),
+        subtitle: Row(
+          children: [
+            Text(reminderData.reminderDate.toString()),
+            Text(reminderData.reminderTime.toString()),
+          ],
+        ),
         trailing:
             //list if widget in appbar actions
             PopupMenuButton(

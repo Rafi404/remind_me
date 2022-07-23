@@ -18,12 +18,12 @@ class ReminderPage extends StatefulWidget {
 class _ReminderPageState extends State<ReminderPage> {
   @override
   void initState() {
-    // context.read<ReminderBloc>().add(
-    //       ViewReminder(),
-    //     );
-    BlocProvider(
-      create: (_) => ReminderBloc()..add(ViewReminder()),
-    );
+    context.read<ReminderBloc>().add(
+          ViewReminder(),
+        );
+    // BlocProvider(
+    //   create: (_) => ReminderBloc()..add(ViewReminder()),
+    // );
     super.initState();
   }
 
