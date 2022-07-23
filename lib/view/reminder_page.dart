@@ -53,7 +53,7 @@ class _ReminderPageState extends State<ReminderPage> {
                     children: const [
                       Icon(
                         Icons.add_circle,
-                        color: Colors.red,
+                        color: Colors.green,
                       ),
                       Text(
                         'New Alert',

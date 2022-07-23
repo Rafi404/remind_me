@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:remind_me/constants/constant.dart';
 import 'package:remind_me/model/reminder_list_model.dart';
 
 class ReminderTile extends StatelessWidget {
@@ -13,12 +14,15 @@ class ReminderTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: Text(reminderData.alertText),
+        title: Text(
+          reminderData.alertText,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
         subtitle: Row(
           children: [
             Text(DateFormat("dd-MM-yyyy")
                 .format(DateTime.parse(reminderData.reminderDate.toString()))),
-            const Spacer(),
+            kWidth,
             Text(reminderData.reminderTime),
           ],
         ),

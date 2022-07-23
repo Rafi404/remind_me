@@ -69,7 +69,7 @@ class _SetReminderState extends State<SetReminder> {
                       ViewReminder(),
                     );
               },
-              icon: const Icon(Icons.edit),
+              icon: const Icon(Icons.arrow_back),
             ),
           ),
           body: Padding(
