@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:remind_me/bloc/reminder_bloc.dart';
+import 'package:remind_me/view/reminder_page.dart';
 
 class SetReminder extends StatefulWidget {
   const SetReminder({Key? key}) : super(key: key);
@@ -57,6 +58,18 @@ class _SetReminderState extends State<SetReminder> {
                   color: Colors.black,
                   fontSize: 15.0,
                   fontWeight: FontWeight.bold),
+            ),
+            leading: IconButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const ReminderPage();
+                }));
+                context.read<ReminderBloc>().add(
+                      ViewReminder(),
+                    );
+              },
+              icon: const Icon(Icons.edit),
             ),
           ),
           body: Padding(
