@@ -1,6 +1,7 @@
 part of 'reminder_bloc.dart';
 
-@immutable
-abstract class ReminderState {}
+class ReminderState {}
 
-class ReminderInitial extends ReminderState {}
+class InitialState extends ReminderState {
+  InitialState() : super();
+}
